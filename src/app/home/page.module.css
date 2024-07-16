@@ -1,0 +1,95 @@
+.main {
+  width: 100%;
+  max-width: 720px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: inherit;
+  position: relative;
+  background: #5e3939
+    url(https://wedding-invi.jp/upload_data/action_design/img/action4/intro-bg.png) repeat
+    top center / 80% auto;
+  color: #ffffff;
+  width: 100%;
+  height: 500px;
+}
+.host {
+  background: url(https://wedding-invi.jp/upload_data/action_design/img/action4/host-bg@2x.png)
+    no-repeat center center / cover;
+  color: #ffffff;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count {
+  background: url(https://wedding-invi.jp/upload_data/action_design/img/action4/countdown-bg@2x.jpg)
+    center center / cover;
+  color: #ffffff;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video {
+  width: 100vw; /* ビューポートの幅全体 */
+  height: 100vh; /* ビューポートの高さ全体 */
+  object-fit: cover; /* コンテンツをアスペクト比を保ちつつ、コンテナに合わせる */
+  z-index: -1; /* 必要に応じて背景に配置 */
+}
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  }
+
+  .card:hover span {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .card:hover span {
+    transform: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .vercelLogo {
+    filter: invert(1);
+  }
+
+  .logo {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
