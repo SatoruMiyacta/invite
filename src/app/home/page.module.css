@@ -1,8 +1,19 @@
 .main {
   width: 100%;
   max-width: 720px;
-  height: 100vh;
   margin: 0 auto;
+  position: relative;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .title {
@@ -42,10 +53,28 @@
 
 .video {
   width: 100vw; /* ビューポートの幅全体 */
-  height: 100vh; /* ビューポートの高さ全体 */
-  object-fit: cover; /* コンテンツをアスペクト比を保ちつつ、コンテナに合わせる */
+  height: 100vh; /* ビュポート高さ全体 */
+  object-fit: cover; /* コンテンツをアスペクト比を保ちつつ、コンテナにわせる */
   z-index: -1; /* 必要に応じて背景に配置 */
 }
+
+.footer {
+  margin-top: auto;
+  padding: 30px;
+  text-align: center;
+}
+
+.centeredText {
+  width: 100%;
+  height: 120px;
+  color: #333;
+  font-weight: bold;
+  margin: 20px 0;
+  display: flex; /* 追加 */
+  align-items: center; /* 追加 */
+  justify-content: center; /* 追加 */
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -92,4 +121,11 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+.fullscreen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }

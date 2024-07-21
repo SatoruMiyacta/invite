@@ -2,24 +2,18 @@
 
 import Typography from '@mui/material/Typography'
 import styles from './page.module.css'
+import Image from 'next/image';
 
 export default function Home() {
   
   return (
     <>
       <main className={styles.main}>
-        <section>
-          {/* <video className={styles.video} preload='metadata' muted autoPlay aria-label='Wedding video'>
-            <source src='/top.mp4' type='video/mp4' />
-            <track
-              src='/path/to/captions.vtt'
-              kind='subtitles'
-              srcLang='en'
-              label='English'
-            />
-            Your browser does not support the video tag.
-          </video>
-          <Image src="/top.svg" alt="top" /> */}
+        <section className={styles.fullscreen}>
+          <Image src="/top.svg" alt="top" layout="fill" objectFit="cover" />
+        </section>
+        <section className={styles.fullscreen}>
+          <Image src="/navi.svg" alt="top" layout="fill" objectFit="cover" />
         </section>
         <section>
           <div className={styles.title}>
