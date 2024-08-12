@@ -129,4 +129,12 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  display: flex; /* 追加 */
+  align-items: center; /* 追加 */
+  justify-content: center; /* 追加 */
+}
+
+.responsiveImage {
+  width: 100%;
+  height: auto;
 }
