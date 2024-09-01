@@ -13,7 +13,10 @@ const TopPage = () => {
   return (
     <>
       <Head>
-        <title>トップページ</title>
+        <title>招待状</title>
+        <meta name="description" content="結婚式当日の招待状です。" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <div style={{ height: '100vh', position: 'relative', backgroundColor: '#fff' }}>
       <Image src="/1.svg" className={styles.image} alt={''} width={100} height={100} />
