@@ -1,16 +1,13 @@
 'use client'
 
-import Typography from '@mui/material/Typography'
 import styles from './page.module.css'
-import Image from 'next/image';
-import { useEffect } from 'react';
 
 export default function Home() {
 
   return (
     <>
       <main className={styles.main}>
-      <div className={styles.imageContainer}>
+        <div className={styles.imageContainer}>
           <img src="/ho2.svg" className={styles.image} />
         </div>
         <div className={styles.imageContainer}>
@@ -27,6 +24,17 @@ export default function Home() {
         </div>
         <div className={styles.imageContainer}>
           <img src="/ho7.svg" className={styles.image} />
+        </div>
+        <div className={styles.imageContainer} >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.5867219024108!2d127.96559471179587!3d26.46904748522975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34e500b0103496c7%3A0x1cae532607091d3f!2z44K244O744Ku44OO44K244Oq44K-44O844OIIOe-juOCieOBruaVmeS8mg!5e0!3m2!1sja!2sjp!4v1725155081257!5m2!1sja!2sjp"
+          width="100%"
+          height="300px"
+          style={{ border: 0 }}
+          allowFullScreen={true}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
         </div>
         {/* <div className={styles.fullscreen} style={{ height: '40vh' }}>
           <Image src="/web2.svg" alt="navi" fill className={styles.responsiveImage} />

@@ -6,6 +6,7 @@ import styles from './home/page.module.css'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import { useRouter } from 'next/navigation';
+import PanToolAltRoundedIcon from '@mui/icons-material/PanToolAltRounded';
 
 const TopPage = () => {
   const router = useRouter();
@@ -26,14 +27,17 @@ const TopPage = () => {
         
         <img src="/topTemp.svg" style={{ width: '100%', height: 'auto' }} />
         
-        <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px' }}>
+        <div style={{ position: 'absolute', bottom: '25px', left: '20px', right: '20px' }}>
           <Button 
             variant="contained" 
-            color="primary" 
-            style={{ fontSize: '1.5rem', padding: '1rem 2rem', width: 'calc(100% - 40px)' }} // 左右の余白を考慮
+            // color="secondary" 
             onClick={() => router.push('/home')}
+            size="large"
+            endIcon={<PanToolAltRoundedIcon />}
+            sx={{ backgroundColor: '#d45ea7', color: '#FFFFFF', padding: '15px 30px', width: '100%', }}
+            disableElevation
           >
-            OPEN
+            ここをクリック !
           </Button>
         </div>      
       </div>
