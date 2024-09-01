@@ -3,11 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import CircularWithValueLabel from '@/ui/CircularProgressWithLabel';
+import Image from 'next/image';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,29 +26,6 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    const images = [
-      "/ho2.svg",
-      "/ho3.svg",
-      "/ho4.svg",
-      "/ho5.svg",
-      "/ho6.svg",
-      "/ho7.svg"
-    ];
-
-    let loadedImages = 0;
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        loadedImages += 1;
-        if (loadedImages === images.length) {
-          setImagesLoaded(true);
-        }
-      };
-    });
-  }, []);
-
   return (
     <>
       <main className={styles.main}>
@@ -57,25 +34,24 @@ export default function Home() {
             <CircularWithValueLabel progress={progress} />
           </div>
         ) : (
-          imagesLoaded && (
             <>
               <div className={styles.imageContainer}>
-                <img src="/ho2.svg" className={styles.image} />
+                <Image src="/2.svg" className={styles.image} alt={''} width={100} height={100} />
               </div>
               <div className={styles.imageContainer}>
-                <img src="/ho3.svg" className={styles.image} />
+                <Image src="/3.svg" className={styles.image} alt={''} width={100} height={100} />
               </div>
               <div className={styles.imageContainer}>
-                <img src="/ho4.svg" className={styles.image} />
+                <Image src="/4.svg" className={styles.image} alt={''} width={100} height={100}/>
               </div>
               <div className={styles.imageContainer}>
-                <img src="/ho5.svg" className={styles.image} />
+                <Image src="/5.svg" className={styles.image} alt={''} width={100} height={100}/>
               </div>
               <div className={styles.imageContainer}>
-                <img src="/ho6.svg" className={styles.image} />
+                <Image src="/6.svg" className={styles.image} alt={''} width={100} height={100}/>
               </div>
               <div className={styles.imageContainer}>
-                <img src="/ho7.svg" className={styles.image} />
+                <Image src="/7.svg" className={styles.image} alt={''} width={100} height={100}/>
               </div>
               <div className={styles.imageContainer}>
                 <iframe
@@ -89,7 +65,6 @@ export default function Home() {
                 />
               </div>
             </>
-          )
         )}
       </main>
     </>
