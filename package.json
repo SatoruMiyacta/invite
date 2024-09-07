@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.18",
     "@mui/material-nextjs": "^5.15.11",
+    "date-fns": "^3.6.0",
     "gsap": "^3.12.5",
     "next": "14.1.4",
     "react": "^18",

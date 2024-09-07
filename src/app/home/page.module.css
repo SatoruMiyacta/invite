@@ -154,3 +154,36 @@
   align-items: center;
   height: 100vh; /* 画面全体の高さに合わせる */
 }
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown {
+  position: absolute; 
+  top: 60%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+}
+
+.countdownItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
+}
+
+.countdownValue {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.countdownLabel {
+  font-size: 1rem;
+  color: #ffffff;
+}
