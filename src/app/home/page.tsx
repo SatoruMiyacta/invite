@@ -81,19 +81,21 @@ export default function Home() {
             <div className={styles.imageContainer}>
               <Image src="/6.svg" className={styles.image} alt={''} width={100} height={100} />
             </div>
-            <div className={styles.imageContainer}>
+            <div className={styles.imageContainer} style={{position: 'relative'}}>
               <Image src="/7.svg" className={styles.image} alt={''} width={100} height={100} />
+              <div className={styles.linkContainer}>
+                <Link target="_blank" href="https://maps.app.goo.gl/Ho8ksuGVb414jxy86" passHref>
+                  <Button 
+                    variant="contained" 
+                    size="large"
+                    color='success'
+                    endIcon={<ArrowForwardIcon />}
+                  >
+                    Googleマップを表示
+                  </Button>
+                </Link>
+              </div>
             </div>
-            <Link target="_blank" href="https://maps.app.goo.gl/Ho8ksuGVb414jxy86" passHref>
-              <Button 
-                variant="contained" 
-                size="large"
-                color='success'
-                endIcon={<ArrowForwardIcon />}
-              >
-                Googleマップを表示
-              </Button>
-            </Link>
             <div className={styles.imageContainer} style={{ position: 'relative' }}>
               <Image src="/countDown.svg" className={styles.image} alt={''} width={100} height={100} />
               <div className={styles.countdown}>
