@@ -19,7 +19,14 @@ const TopPage = () => {
         <link rel='icon' href='/favicon.png' />
       </Head>
       <div style={{ height: '100vh', position: 'relative', backgroundColor: '#fff' }}>
-        <Image src='/1.svg' className={styles.image} alt={''} width={100} height={100} />
+        <Image
+          src='/1.svg'
+          className={styles.image}
+          alt={''}
+          width={100}
+          height={100}
+          priority
+        />
 
         <div
           style={{ position: 'absolute', bottom: '25px', left: '20px', right: '20px' }}

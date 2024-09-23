@@ -40,37 +40,7 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
-    const images = [
-      '/2.svg',
-      '/3.svg',
-      '/4.svg',
-      '/5.svg',
-      '/6.svg',
-      '/7.svg',
-      '/8.svg',
-      '/9.svg',
-    ]
-
-    const preloadImages = (srcArray: any[]) => {
-      const promises = srcArray.map((src) => {
-        return new Promise<void>((resolve, reject) => {
-          const img = new window.Image() // 修正: 'window' を追加
-          img.src = src
-          img.onload = () => resolve()
-          img.onerror = (event: Event | string) => reject(event)
-        })
-      })
-      return Promise.all(promises)
-    }
-
-    preloadImages(images)
-      .then(() => {
-        setLoading(false)
-      })
-      .catch((err) => {
-        console.error('画像の読み込みに失敗しました', err)
-        setLoading(false)
-      })
+    setLoading(false)
   }, [])
 
   return (
@@ -89,6 +59,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
+                priority
               />
             </div>
             <div className={styles.imageContainer}>
