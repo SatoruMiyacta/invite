@@ -2,21 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './page.module.css';
-import CircularWithValueLabel from '@/ui/CircularProgressWithLabel';
 import Image from 'next/image';
 import Button from '@mui/material/Button'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Link from 'next/link';
-import { Pacifico } from "next/font/google";
+import { Courgette } from "next/font/google";
+import CircularProgress from '@mui/material/CircularProgress';
 
-const PacificoFont = Pacifico({
+const Font = Courgette({
   weight: "400",
   subsets: ["latin"],
 });
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
   const [timeLeft, setTimeLeft] = useState('');
 
   useEffect(() => {
@@ -48,7 +47,8 @@ export default function Home() {
       '/5.svg',
       '/6.svg',
       '/7.svg',
-      '/countDown.svg'
+      '/8.svg',
+      '/9.svg',
     ];
 
     const preloadImages = (srcArray: any[]) => {
@@ -71,29 +71,12 @@ export default function Home() {
     });
   }, []);
 
-  useEffect(() => {
-    const progressTimer = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          clearInterval(progressTimer);
-          setLoading(false);
-          return 100;
-        }
-        return prevProgress + 50;
-      });
-    }, 100);
-
-    return () => {
-      clearInterval(progressTimer);
-    };
-  }, []);
-
   return (
     <>
       <main className={styles.main}>
         {loading ? (
           <div className={styles.center}>
-            <CircularWithValueLabel progress={progress} />
+            <CircularProgress />
           </div>
         ) : (
           <>
@@ -112,8 +95,11 @@ export default function Home() {
             <div className={styles.imageContainer}>
               <Image src="/6.svg" className={styles.image} alt={''} width={100} height={100} />
             </div>
-            <div className={styles.imageContainer} style={{position: 'relative'}}>
+            <div className={styles.imageContainer}>
               <Image src="/7.svg" className={styles.image} alt={''} width={100} height={100} />
+            </div>
+            <div className={styles.imageContainer} style={{position: 'relative'}}>
+              <Image src="/8.svg" className={styles.image} alt={''} width={100} height={100} />
               <div className={styles.linkContainer}>
                 <Link target="_blank" href="https://maps.app.goo.gl/Ho8ksuGVb414jxy86" passHref>
                   <Button 
@@ -128,22 +114,23 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.imageContainer} style={{ position: 'relative' }}>
-              <Image src="/countDown.svg" className={styles.image} alt={''} width={100} height={100} />
+              <Image src="/9.svg" className={styles.image} alt={''} width={100} height={100} />
+              <h1 className={`${Font.className} ${styles.head}`} style={{ fontSize: '4rem' }}>Count Down</h1>
               <div className={styles.countdown}>
-                <div className={`${PacificoFont.className} ${styles.countdownItem}`} style={{ fontSize: '32px' }}>
+                <div className={`${Font.className} ${styles.countdownItem}`} style={{ fontSize: '32px' }}>
                   <span className={styles.countdownValue} style={{ fontSize: '4rem' }}>{timeLeft.split(' ')[0]}</span>
                   <span className={styles.countdownLabel}>DAYS</span>
                 </div>
                 <div className={styles.flex}>
-                  <div className={`${PacificoFont.className} ${styles.countdownItem}`}>
+                  <div className={`${Font.className} ${styles.countdownItem}`}>
                     <span className={styles.countdownValue}>{timeLeft.split(' ')[1]}</span>
                     <span className={styles.countdownLabel}>HOURS</span>
                   </div>
-                  <div className={`${PacificoFont.className} ${styles.countdownItem}`}>
+                  <div className={`${Font.className} ${styles.countdownItem}`}>
                     <span className={styles.countdownValue}>{timeLeft.split(' ')[2]}</span>
                     <span className={styles.countdownLabel}>MINUTES</span>
                   </div>
-                  <div className={`${PacificoFont.className} ${styles.countdownItem}`}>
+                  <div className={`${Font.className} ${styles.countdownItem}`}>
                     <span className={styles.countdownValue}>{timeLeft.split(' ')[3]}</span>
                     <span className={styles.countdownLabel}>SECONDS</span>
                   </div>
