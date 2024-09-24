@@ -79,7 +79,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -89,7 +88,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -99,7 +97,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -109,7 +106,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -119,7 +115,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer} style={{ position: 'relative' }}>
@@ -129,7 +124,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
               <div className={styles.linkContainer}>
                 <Link
@@ -155,7 +149,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
               <h1
                 className={`${Font.className} ${styles.head}`}
