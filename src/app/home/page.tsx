@@ -19,30 +19,36 @@ export default function Home() {
   const [timeLeft, setTimeLeft] = useState('')
 
   useEffect(() => {
-    const weddingDate = new Date('2024-12-01T10:15:00') // 結婚式の日付を設定
-    const timer = setInterval(() => {
-      const now = new Date()
-      const difference = weddingDate.getTime() - now.getTime()
+    if (!loading) {
+      const weddingDate = new Date('2024-12-01T10:15:00') // 結婚式の日付を設定
+      const timer = setInterval(() => {
+        const now = new Date()
+        const difference = weddingDate.getTime() - now.getTime()
 
-      if (difference <= 0) {
-        clearInterval(timer)
-        setTimeLeft('結婚式の日です！')
-      } else {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000)
-        setTimeLeft(`${days} ${hours} ${minutes} ${seconds}`)
-      }
-    }, 1000)
+        if (difference <= 0) {
+          clearInterval(timer)
+          setTimeLeft('結婚式の日です！')
+        } else {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+          const hours = Math.floor(
+            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          )
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000)
+          setTimeLeft(`${days} ${hours} ${minutes} ${seconds}`)
+        }
+      }, 1000)
 
-    return () => clearInterval(timer)
-  }, [])
+      return () => clearInterval(timer)
+    }
+  }, [loading])
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false)
     }, 500)
+
+    return () => clearTimeout(timer)
   }, [])
 
   return (
@@ -61,7 +67,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                priority
+                priority={true}
               />
             </div>
             <div className={styles.imageContainer}>
@@ -81,7 +87,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
+                priority={true}
               />
             </div>
             <div className={styles.imageContainer}>
