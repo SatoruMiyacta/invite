@@ -17,6 +17,7 @@ const Font = Courgette({
 export default function Home() {
   const [loading, setLoading] = useState(true)
   const [timeLeft, setTimeLeft] = useState('')
+  const [oneTheDay, setOneTheDay] = useState<string | null>(null)
 
   useEffect(() => {
     if (!loading) {
@@ -27,7 +28,8 @@ export default function Home() {
 
         if (difference <= 0) {
           clearInterval(timer)
-          setTimeLeft('結婚式の日です！')
+          setOneTheDay('Happy Wedding')
+          setTimeLeft(`${0} ${0} ${0} ${0}`)
         } else {
           const days = Math.floor(difference / (1000 * 60 * 60 * 24))
           const hours = Math.floor(
@@ -44,11 +46,29 @@ export default function Home() {
   }, [loading])
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 500)
+    const images = [
+      '/2.svg',
+      '/3.svg',
+      '/4.svg',
+      '/5.svg',
+      '/6.svg',
+      '/7.svg',
+      '/8.svg',
+      '/9.svg',
+    ]
 
-    return () => clearTimeout(timer)
+    let loadedImages = 0
+
+    images.forEach((src) => {
+      const img = new window.Image() // 修正: window.Image() を使用
+      img.src = src
+      img.onload = () => {
+        loadedImages += 1
+        if (loadedImages === images.length) {
+          setLoading(false)
+        }
+      }
+    })
   }, [])
 
   return (
@@ -77,7 +97,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -87,7 +106,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                priority={true}
               />
             </div>
             <div className={styles.imageContainer}>
@@ -97,7 +115,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -107,7 +124,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -117,7 +133,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer} style={{ position: 'relative' }}>
@@ -127,7 +142,6 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
               <div className={styles.linkContainer}>
                 <Link
@@ -153,45 +167,43 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
-                loading='lazy'
               />
               <h1
                 className={`${Font.className} ${styles.head}`}
                 style={{ fontSize: '4rem' }}
               >
-                Count Down
+                {oneTheDay ?? 'Count Down'}
               </h1>
-              <div className={styles.countdown}>
-                <div
-                  className={`${Font.className} ${styles.countdownItem}`}
-                  style={{ fontSize: '32px' }}
-                >
-                  <span className={styles.countdownValue} style={{ fontSize: '4rem' }}>
-                    {timeLeft.split(' ')[0]}
-                  </span>
-                  <span className={styles.countdownLabel}>DAYS</span>
+              {!oneTheDay && (
+                <div className={`${Font.className} ${styles.countdown}`}>
+                  <div className={`${styles.countdownItem}`} style={{ fontSize: '32px' }}>
+                    <span className={styles.countdownValue} style={{ fontSize: '4rem' }}>
+                      {timeLeft.split(' ')[0]}
+                    </span>
+                    <span className={styles.countdownLabel}>DAYS</span>
+                  </div>
+                  <div className={styles.flex}>
+                    <div className={`${styles.countdownItem}`}>
+                      <span className={styles.countdownValue}>
+                        {timeLeft.split(' ')[1]}
+                      </span>
+                      <span className={styles.countdownLabel}>HOURS</span>
+                    </div>
+                    <div className={`${styles.countdownItem}`}>
+                      <span className={styles.countdownValue}>
+                        {timeLeft.split(' ')[2]}
+                      </span>
+                      <span className={styles.countdownLabel}>MINUTES</span>
+                    </div>
+                    <div className={`${styles.countdownItem}`}>
+                      <span className={styles.countdownValue}>
+                        {timeLeft.split(' ')[3]}
+                      </span>
+                      <span className={styles.countdownLabel}>SECONDS</span>
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.flex}>
-                  <div className={`${Font.className} ${styles.countdownItem}`}>
-                    <span className={styles.countdownValue}>
-                      {timeLeft.split(' ')[1]}
-                    </span>
-                    <span className={styles.countdownLabel}>HOURS</span>
-                  </div>
-                  <div className={`${Font.className} ${styles.countdownItem}`}>
-                    <span className={styles.countdownValue}>
-                      {timeLeft.split(' ')[2]}
-                    </span>
-                    <span className={styles.countdownLabel}>MINUTES</span>
-                  </div>
-                  <div className={`${Font.className} ${styles.countdownItem}`}>
-                    <span className={styles.countdownValue}>
-                      {timeLeft.split(' ')[3]}
-                    </span>
-                    <span className={styles.countdownLabel}>SECONDS</span>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
           </>
         )}
