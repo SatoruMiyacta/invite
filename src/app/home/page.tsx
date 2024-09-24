@@ -46,29 +46,11 @@ export default function Home() {
   }, [loading])
 
   useEffect(() => {
-    const images = [
-      '/2.svg',
-      '/3.svg',
-      '/4.svg',
-      '/5.svg',
-      '/6.svg',
-      '/7.svg',
-      '/8.svg',
-      '/9.svg',
-    ]
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 500)
 
-    let loadedImages = 0
-
-    images.forEach((src) => {
-      const img = new window.Image() // 修正: window.Image() を使用
-      img.src = src
-      img.onload = () => {
-        loadedImages += 1
-        if (loadedImages === images.length) {
-          setLoading(false)
-        }
-      }
-    })
+    return () => clearTimeout(timer)
   }, [])
 
   return (
@@ -97,6 +79,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
+                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -115,6 +98,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
+                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -124,6 +108,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
+                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer}>
@@ -133,6 +118,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
+                loading='lazy'
               />
             </div>
             <div className={styles.imageContainer} style={{ position: 'relative' }}>
@@ -142,6 +128,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
+                loading='lazy'
               />
               <div className={styles.linkContainer}>
                 <Link
@@ -167,6 +154,7 @@ export default function Home() {
                 alt={''}
                 width={100}
                 height={100}
+                loading='lazy'
               />
               <h1
                 className={`${Font.className} ${styles.head}`}
