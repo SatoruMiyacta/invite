@@ -61,6 +61,7 @@ export default function Home() {
             width={100}
             height={100}
             priority={true}
+            onLoad={() => setLoading(false)}
           />
         </div>
         <div className={styles.imageContainer}>
@@ -80,7 +81,6 @@ export default function Home() {
             alt={''}
             width={100}
             height={100}
-            onLoad={() => setLoading(false)}
           />
         </div>
         <div className={styles.imageContainer}>
