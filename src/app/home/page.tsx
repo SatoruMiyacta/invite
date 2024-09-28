@@ -75,7 +75,7 @@ export default function Home() {
         </div>
         <div className={styles.imageContainerWithBackground}>
           <Image
-            src='/noBack4.svg'
+            src='/4.svg'
             className={styles.image}
             alt={''}
             width={100}
