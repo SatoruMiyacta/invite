@@ -17,6 +17,16 @@
   margin-bottom: 0; /* 画像の間に余白を作りたくない場合 */
 }
 
+.imageContainerWithBackground {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+  background-image: url('/4.png');
+  background-size: cover;
+  background-position: center;
+}
+
 .image {
   width: 100%;
   height: auto;

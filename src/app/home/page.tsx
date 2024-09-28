@@ -73,9 +73,9 @@ export default function Home() {
             loading='lazy'
           />
         </div>
-        <div className={styles.imageContainer}>
+        <div className={styles.imageContainerWithBackground}>
           <Image
-            src='/4.svg'
+            src='/noBack4.svg'
             className={styles.image}
             alt={''}
             width={100}
